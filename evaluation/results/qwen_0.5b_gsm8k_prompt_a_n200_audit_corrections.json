@@ -1,0 +1,33 @@
+{
+  "method": "Codex consistency audit against the official GSM8K rationale and raw response; still requires human review",
+  "corrections": [
+    {
+      "id": 167,
+      "primary_error_type": "Relation Modeling Error",
+      "secondary_error_type": null,
+      "evidence": "The model treats the 9 eggs as a basket Sandra already owns and subtracts them from 45. The question says she receives one 9-egg basket per babysitting session, so the correct relation is 45 / 9 = 5 sessions; the model then also divides by 3 eggs per flan instead of 9 eggs per session.",
+      "reason": "The two-pass evidence contradicted gold=5 by claiming 36/9=4 was the target calculation; the official rationale confirms no initial basket should be subtracted."
+    },
+    {
+      "id": 207,
+      "primary_error_type": "Arithmetic Error",
+      "secondary_error_type": null,
+      "evidence": "The first-period equation 5 rides/week × 4 weeks × 25 km/ride is correct, but the model evaluates 5 × 4 as 10 and obtains 250 instead of 500. The second period is 360, so the correct total is 500 + 360 = 860.",
+      "reason": "The two-pass evidence incorrectly claimed 250+360 was added wrongly; that sum is 610. The actual first error is evaluating 5×4×25 as 250."
+    },
+    {
+      "id": 243,
+      "primary_error_type": "Relation Modeling Error",
+      "secondary_error_type": "Arithmetic Error",
+      "evidence": "The model ignores that Mike stopped corresponding with 2 of the 5 people, so it uses 5 rather than 3 active pen pals. It also divides 50 pages by 6 minutes/page instead of multiplying; the official chain is 3 × 2 × 5 = 30 pages and 30 × 6 / 60 = 3 hours.",
+      "reason": "The two-pass annotation called the correct conversion 50/360=5/36 an error and missed the earlier failure to subtract two pen pals."
+    },
+    {
+      "id": 299,
+      "primary_error_type": "Goal Misunderstanding",
+      "secondary_error_type": "Relation Modeling Error",
+      "evidence": "The model sums selected bid amounts (200+250+300) instead of reporting Carmen's final winning bid. There are six $50 increases—one by each of three other bidders and one responding bid by Carmen after each—so the desk costs 200 + 6×50 = 500, not 750.",
+      "reason": "The two-pass evidence incorrectly stated the expected final bid was 350; the official rationale includes Carmen's three responding bids and gives gold=500."
+    }
+  ]
+}

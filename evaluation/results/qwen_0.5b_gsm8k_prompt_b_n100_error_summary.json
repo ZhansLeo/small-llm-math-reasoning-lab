@@ -1,0 +1,62 @@
+{
+  "source_annotation": "D:\\desktop documents\\ScientificResearch\\llm-learning\\evaluation\\results\\qwen_0.5b_gsm8k_prompt_b_n100_errors.json",
+  "source_result": "D:\\desktop documents\\ScientificResearch\\llm-learning\\evaluation\\results\\qwen_0.5b_gsm8k_prompt_b_n100.json",
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "prompt": {
+    "name": "prompt_b",
+    "version": "v1",
+    "template": "Solve the following math problem carefully.\n\n{question}\n\nWork through the problem step by step. Then return the final numeric answer on the last line in exactly this format:\n#### 42\nReplace 42 with the answer. Do not write anything after that line."
+  },
+  "evaluation_samples": 100,
+  "annotation_method": {
+    "type": "llm_assisted_preliminary",
+    "model": "deepseek-chat",
+    "human_review_required": true
+  },
+  "human_review_required": true,
+  "error_samples": 57,
+  "primary_error_distribution": [
+    {
+      "error_type": "Hallucinated Premise",
+      "count": 1,
+      "rate": 0.017543859649122806,
+      "rate_of_all_samples": 0.01
+    },
+    {
+      "error_type": "Semantic Understanding Error",
+      "count": 11,
+      "rate": 0.19298245614035087,
+      "rate_of_all_samples": 0.11
+    },
+    {
+      "error_type": "Relation Modeling Error",
+      "count": 34,
+      "rate": 0.5964912280701754,
+      "rate_of_all_samples": 0.34
+    },
+    {
+      "error_type": "Goal Misunderstanding",
+      "count": 3,
+      "rate": 0.05263157894736842,
+      "rate_of_all_samples": 0.03
+    },
+    {
+      "error_type": "Spatial / Directional Reasoning Error",
+      "count": 1,
+      "rate": 0.017543859649122806,
+      "rate_of_all_samples": 0.01
+    },
+    {
+      "error_type": "Arithmetic Error",
+      "count": 7,
+      "rate": 0.12280701754385964,
+      "rate_of_all_samples": 0.07
+    },
+    {
+      "error_type": "Generation / Formatting Error",
+      "count": 0,
+      "rate": 0.0,
+      "rate_of_all_samples": 0.0
+    }
+  ]
+}

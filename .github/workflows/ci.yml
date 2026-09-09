@@ -1,0 +1,23 @@
+name: fast-checks
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - name: Evaluator and analysis tests
+        working-directory: evaluation
+        run: |
+          python test_parser.py
+          python test_prompts.py
+          python test_analysis.py
+          python test_runner.py
+      - name: Verify frozen release files
+        run: python freeze_release.py --verify

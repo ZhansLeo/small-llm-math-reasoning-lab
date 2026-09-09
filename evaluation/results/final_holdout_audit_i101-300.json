@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0",
+  "source_protocol": "D:\\desktop documents\\ScientificResearch\\llm-learning\\evaluation\\results\\final_protocol_frozen.json",
+  "audit_passed": true,
+  "checks": {
+    "frozen_protocol_status": true,
+    "matrix_matches_frozen_protocol": true,
+    "artifact_hashes_match_frozen_protocol": true,
+    "all_runs_completed": true,
+    "all_ids_exactly_101_to_300_in_order": true,
+    "questions_and_gold_align_across_runs": true,
+    "stored_predictions_match_current_evaluator": true,
+    "stored_statuses_match_recomputed_scores": true,
+    "stored_format_flags_match_recomputed_flags": true,
+    "stored_aggregates_match_records": true,
+    "raw_responses_are_nonempty": true,
+    "prompt_templates_consistent_within_prompt_name": true,
+    "decoding_is_greedy_for_all_runs": true
+  },
+  "issues": [],
+  "runs": [
+    {
+      "condition": "base",
+      "prompt": "prompt_a",
+      "n": 200,
+      "correct": 94,
+      "wrong": 102,
+      "invalid": 4,
+      "accuracy": 0.47,
+      "accuracy_wilson_95ci": [
+        0.40204754873265425,
+        0.5390831708499817
+      ],
+      "invalid_rate": 0.02,
+      "format_compliance_rate": 0.0
+    },
+    {
+      "condition": "base",
+      "prompt": "prompt_c",
+      "n": 200,
+      "correct": 82,
+      "wrong": 113,
+      "invalid": 5,
+      "accuracy": 0.41,
+      "accuracy_wilson_95ci": [
+        0.34415674908482885,
+        0.4792354096630791
+      ],
+      "invalid_rate": 0.025,
+      "format_compliance_rate": 0.0
+    },
+    {
+      "condition": "random_sft",
+      "prompt": "prompt_a",
+      "n": 200,
+      "correct": 69,
+      "wrong": 131,
+      "invalid": 0,
+      "accuracy": 0.345,
+      "accuracy_wilson_95ci": [
+        0.2825979437674894,
+        0.4132441074094632
+      ],
+      "invalid_rate": 0.0,
+      "format_compliance_rate": 0.99
+    },
+    {
+      "condition": "random_sft",
+      "prompt": "prompt_c",
+      "n": 200,
+      "correct": 60,
+      "wrong": 140,
+      "invalid": 0,
+      "accuracy": 0.3,
+      "accuracy_wilson_95ci": [
+        0.24074744682371402,
+        0.36679068372719265
+      ],
+      "invalid_rate": 0.0,
+      "format_compliance_rate": 0.99
+    },
+    {
+      "condition": "error_guided_sft",
+      "prompt": "prompt_a",
+      "n": 200,
+      "correct": 71,
+      "wrong": 128,
+      "invalid": 1,
+      "accuracy": 0.355,
+      "accuracy_wilson_95ci": [
+        0.2919862754043116,
+        0.42347886924509565
+      ],
+      "invalid_rate": 0.005,
+      "format_compliance_rate": 0.99
+    },
+    {
+      "condition": "error_guided_sft",
+      "prompt": "prompt_c",
+      "n": 200,
+      "correct": 63,
+      "wrong": 137,
+      "invalid": 0,
+      "accuracy": 0.315,
+      "accuracy_wilson_95ci": [
+        0.2546232099022851,
+        0.3823495608573036
+      ],
+      "invalid_rate": 0.0,
+      "format_compliance_rate": 1.0
+    }
+  ],
+  "interpretation_guardrails": [
+    "Wilson intervals describe uncertainty for each marginal accuracy; paired model differences use exact McNemar tests.",
+    "Failure to reject the McNemar null is not evidence that two conditions are equivalent.",
+    "Holdout results must not be used to retune and retest on IDs 101-300."
+  ]
+}

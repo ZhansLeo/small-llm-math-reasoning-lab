@@ -1,0 +1,50 @@
+[
+  {
+    "id": "llm-agent-memory",
+    "url": "mock://doc/llm-agent-memory",
+    "title": "大语言模型智能体的记忆机制综述",
+    "snippet": "综述 LLM 智能体的短期记忆、长期记忆与工作记忆，介绍 MemGPT、Generative Agents、MemoryBank 等代表性记忆方案。",
+    "content": "大语言模型智能体的记忆机制是当前研究热点。记忆通常分为三类：短期记忆（即上下文窗口）、长期记忆（外部持久化存储）和工作记忆（当前任务相关的中间状态）。\n\nMemGPT 提出操作系统式的分层记忆：把上下文窗口视为主存，把外部向量数据库视为磁盘，模型通过工具调用主动管理记忆的分页、读写与归档，从而突破上下文长度限制。\n\nGenerative Agents（斯坦福小镇）让智能体具备记忆流、反思与规划能力：智能体把日常观察写入记忆流，通过相关性、新颖性、重要性打分检索记忆，再周期性进行高层次反思，形成稳定的自我认知。\n\nMemoryBank 强调记忆的整合与遗忘：类似人脑的长期记忆巩固过程，定期把细节记忆抽象为概括性记忆，并引入遗忘机制以保持记忆库干净。\n\n检索（Retrieval）是记忆发挥作用的关键环节：常见做法是把记忆向量化后存入向量库，用当前对话或任务目标作为查询做相似度检索，再把命中的记忆片段拼入上下文提示词中。",
+    "keywords": ["记忆", "短期记忆", "长期记忆", "MemGPT", "Generative Agents", "MemoryBank", "检索", "向量库"]
+  },
+  {
+    "id": "react-framework",
+    "url": "mock://doc/react-framework",
+    "title": "ReAct：融合推理与行动的智能体框架",
+    "snippet": "ReAct 让模型在思考（Reason）与行动（Act）之间交替，通过工具调用获取观察再继续推理，显著提升多步任务的可靠性。",
+    "content": "ReAct（Reasoning + Acting）是让大语言模型交替进行推理与行动的智能体框架。每一步，模型先输出 Thought（思考）说明当前判断，再输出 Action（行动）选择调用哪个工具以及参数，工具返回 Observation（观察），模型据此继续推理，直到得出最终答案。\n\nReAct 相比纯思维链（Chain-of-Thought）的优势在于：它可以主动查询外部知识、纠正错误假设、处理动态变化的信息，因此特别适合需要多步信息搜集的研究类任务。\n\nReAct 相比纯行动（Act-only）的优势在于：显式的思考过程让模型能规划行动顺序、在工具失败时自我纠错，轨迹也更可解释。\n\n在实际实现中，ReAct 循环通过“函数调用”（function calling / tool calling）机制落地：模型输出结构化的工具调用请求，执行器调用对应工具并把结果作为观察返回给模型，循环往复直至模型给出最终回答。",
+    "keywords": ["ReAct", "推理", "行动", "Thought", "Observation", "工具调用", "思维链"]
+  },
+  {
+    "id": "multi-agent-collaboration",
+    "url": "mock://doc/multi-agent-collaboration",
+    "title": "多智能体协作与通信",
+    "snippet": "AutoGen、MetaGPT、AgentVerse 等多智能体框架，通过角色分工与相互评审协作完成复杂任务。",
+    "content": "多智能体协作把复杂任务拆给多个各司其职的智能体：研究者负责搜集资料，写作智能体负责撰写，评审智能体负责挑错，通过相互通信与评审不断提升产出质量。\n\nAutoGen 允许开发者定义多个可对话的智能体并编排对话流程，智能体之间通过消息传递交换信息，还可接入人类、工具与代码执行器。\n\nMetaGPT 引入软件公司的角色分工，以“标准化操作流程”（SOP）约束不同角色的智能体输出中间产物（需求文档、设计文档、代码），实现流水线式协作。\n\n多智能体的关键研究问题包括：角色如何分配与动态调整、通信协议如何设计、如何避免重复劳动与信息孤岛、以及如何对协作结果进行评价。",
+    "keywords": ["多智能体", "AutoGen", "MetaGPT", "协作", "角色分工", "评审", "通信"]
+  },
+  {
+    "id": "tool-calling",
+    "url": "mock://doc/tool-calling",
+    "title": "大模型的工具调用与函数调用机制",
+    "snippet": "通过 function calling / tool calling 让 LLM 调用外部 API、搜索引擎、代码解释器等，扩展模型能力边界。",
+    "content": "工具调用（tool calling，也叫函数调用 function calling）是让大语言模型与外部世界交互的标准机制。开发者先向模型注册一批带 JSON Schema 的工具描述，模型在推理时若认为需要外部能力，就会输出结构化的工具调用请求，包含工具名与参数，宿主程序执行后把结果返回给模型。\n\nOpenAI、DeepSeek 等模型的聊天补全接口都支持 tools 参数，返回的 tool_calls 字段即可用于驱动 ReAct 循环。\n\n工具调用的价值：让模型获得实时信息（搜索引擎）、计算能力（代码解释器）、操作能力（数据库、文件系统），从而突破纯参数化知识在时效性与准确性上的局限。\n\n结构化输出（structured output）与工具调用密切相关：通过 with_structured_output 可以让模型按照预定义的模式输出 JSON，常用于把模型判断解析成程序可用的结构化字段。",
+    "keywords": ["工具调用", "函数调用", "function calling", "tool calling", "JSON Schema", "结构化输出", "tool_calls"]
+  },
+  {
+    "id": "rag",
+    "url": "mock://doc/rag",
+    "title": "检索增强生成 RAG 技术",
+    "snippet": "RAG 结合检索与生成，从外部知识库检索相关段落作为上下文，缓解幻觉并支持知识更新。",
+    "content": "检索增强生成（Retrieval-Augmented Generation, RAG）在模型生成前先从外部知识库检索与问题相关的段落，拼入上下文后再让模型生成答案。\n\nRAG 的核心流程：文档切分（chunking）→ 向量化（embedding）→ 存入向量数据库 → 查询时检索 top-k 相关片段 →（可选）重排序（rerank）→ 拼入提示词生成回答。\n\nRAG 相比纯参数化生成的优势：降低幻觉、支持私有/最新知识、便于按来源引用。局限性在于检索质量直接决定生成质量，检索不到相关内容时模型可能无法回答。\n\nRAG 与记忆机制一脉相承：可以把“记忆”视为持续更新、与任务相关的私有知识库，用同样的向量检索方式把相关历史发现取回并注入上下文。",
+    "keywords": ["RAG", "检索增强生成", "向量检索", "embedding", "向量数据库", "重排序", "幻觉"]
+  },
+  {
+    "id": "agent-evaluation",
+    "url": "mock://doc/agent-evaluation",
+    "title": "智能体系统的评测方法",
+    "snippet": "从任务成功率、工具使用正确率、轨迹质量、记忆保持等维度评测智能体，常用基准包括 AgentBench、GAIA。",
+    "content": "智能体评测比传统问答评测更复杂，因为智能体的行为是一条包含多次工具调用的轨迹，而非单个答案。\n\n常见评测维度：任务最终成功率（task success rate）、工具调用正确率（是否正确选择工具与参数）、轨迹效率（步数、token 消耗）、记忆保持能力（长对话中是否记得早期信息）、以及人类偏好。\n\n代表性基准：AgentBench 覆盖操作系统、数据库、网页等真实环境任务；GAIA 以需要多步推理与工具调用的现实问题衡量通用助手能力。\n\n轨迹级评测通常用更强大的模型（如 GPT-4 级别）作为裁判，对智能体的每一步进行打分并给出原因，这也被称为 LLM-as-a-judge。",
+    "keywords": ["评测", "AgentBench", "GAIA", "轨迹", "任务成功率", "LLM-as-a-judge", "记忆保持"]
+  }
+]

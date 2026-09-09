@@ -1,0 +1,83 @@
+{
+  "method": "Codex assistant consistency audit using earliest-root-cause policy; still requires human review",
+  "corrections": [
+    {
+      "id": 8,
+      "primary_error_type": "Hallucinated Premise",
+      "secondary_error_type": "Semantic Understanding Error",
+      "reason": "The first concrete failure is inventing a 3 GB/min post-restart speed absent from the question."
+    },
+    {
+      "id": 9,
+      "primary_error_type": "Spatial / Directional Reasoning Error",
+      "secondary_error_type": "Relation Modeling Error",
+      "reason": "The central failure is modeling return travel and final displacement from home."
+    },
+    {
+      "id": 20,
+      "primary_error_type": "Semantic Understanding Error",
+      "secondary_error_type": "Relation Modeling Error",
+      "reason": "The model misreads one hour as 1/60 hour and omits part of the stated walked distance before modeling speed."
+    },
+    {
+      "id": 24,
+      "primary_error_type": "Semantic Understanding Error",
+      "secondary_error_type": "Goal Misunderstanding",
+      "reason": "It misreads the time interval and then answers remaining candle length instead of centimeters shorter."
+    },
+    {
+      "id": 30,
+      "primary_error_type": "Relation Modeling Error",
+      "secondary_error_type": "Generation / Formatting Error",
+      "reason": "The wrong cost equation is the root cause; after detecting a contradiction the model submits no final answer."
+    },
+    {
+      "id": 32,
+      "primary_error_type": "Relation Modeling Error",
+      "secondary_error_type": "Arithmetic Error",
+      "reason": "It models '20 more than half of 80' as 80 rather than 60 before the later averaging error."
+    },
+    {
+      "id": 37,
+      "primary_error_type": "Semantic Understanding Error",
+      "secondary_error_type": "Relation Modeling Error",
+      "reason": "It first changes the stated offer from four yogurts for $5 to five yogurts for $5."
+    },
+    {
+      "id": 45,
+      "primary_error_type": "Semantic Understanding Error",
+      "secondary_error_type": "Relation Modeling Error",
+      "reason": "It first misreads one pound making ten candles as one pound being required per candle."
+    },
+    {
+      "id": 48,
+      "primary_error_type": "Semantic Understanding Error",
+      "secondary_error_type": "Relation Modeling Error",
+      "reason": "It ignores the explicitly stated $200 blue-tie expenditure and substitutes an unsupported calculation."
+    },
+    {
+      "id": 54,
+      "primary_error_type": "Semantic Understanding Error",
+      "secondary_error_type": "Relation Modeling Error",
+      "reason": "It ignores the explicitly stated Friday car-tire repairs because there were no truck repairs."
+    },
+    {
+      "id": 67,
+      "primary_error_type": "Semantic Understanding Error",
+      "secondary_error_type": "Relation Modeling Error",
+      "reason": "It first misses that each school supplies both a girls' and boys' team, including a coach for each."
+    },
+    {
+      "id": 93,
+      "primary_error_type": "Semantic Understanding Error",
+      "secondary_error_type": "Relation Modeling Error",
+      "reason": "It assigns Amy's stated age relation to Jackson, changing the referenced person."
+    },
+    {
+      "id": 96,
+      "primary_error_type": "Relation Modeling Error",
+      "secondary_error_type": null,
+      "reason": "The subtraction uses all students instead of the previously derived number of girls; this is the wrong reference set, not arithmetic."
+    }
+  ]
+}

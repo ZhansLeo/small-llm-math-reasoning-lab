@@ -1,0 +1,10 @@
+{
+  "elapsed_seconds": 2509.245930700039,
+  "peak_process_rss_gb": 5.047687530517578,
+  "minimum_system_available_gb": 8.300403594970703,
+  "trainable_parameters": 4399104,
+  "total_parameters_with_adapter": 498431872,
+  "trainable_percentage": 0.8825888244963597,
+  "gradient_checkpointing": false,
+  "smoke": false
+}

@@ -1,0 +1,25 @@
+*.env
+!.env.example
+.vscode/
+.claude/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+.DS_Store
+*.checkpoint.json
+
+# Hugging Face / experiment caches
+.cache/
+huggingface/
+
+# Rebuildable training state and model binaries. Compact metrics/configuration
+# files under the formal output directories remain tracked.
+training/outputs/**/checkpoints/
+training/outputs/*_smoke/
+training/outputs/**/adapter/
+*.safetensors
+optimizer.pt
+scheduler.pt
+rng_state.pth
+training_args.bin

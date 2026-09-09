@@ -1,0 +1,64 @@
+{
+  "source_annotation": "D:\\desktop documents\\ScientificResearch\\llm-learning\\evaluation\\results\\qwen_0.5b_gsm8k_prompt_a_n200_i101-300_errors.json",
+  "source_result": "D:\\desktop documents\\ScientificResearch\\llm-learning\\evaluation\\results\\qwen_0.5b_gsm8k_prompt_a_n200_i101-300.json",
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "prompt": {
+    "name": "prompt_a",
+    "version": "v1",
+    "template": "Solve the following math problem.\n\n{question}\n\nReturn the final numeric answer on the last line in exactly this format:\n#### 42\nReplace 42 with the answer. Do not write anything after that line."
+  },
+  "evaluation_samples": 200,
+  "annotation_method": {
+    "type": "llm_assisted_two_pass",
+    "classifier_model": "deepseek-chat",
+    "reviewer_model": "deepseek-chat",
+    "review_reference": "official GSM8K rationale",
+    "human_review_required": true
+  },
+  "human_review_required": true,
+  "error_samples": 106,
+  "primary_error_distribution": [
+    {
+      "error_type": "Hallucinated Premise",
+      "count": 2,
+      "rate": 0.018867924528301886,
+      "rate_of_all_samples": 0.01
+    },
+    {
+      "error_type": "Semantic Understanding Error",
+      "count": 21,
+      "rate": 0.19811320754716982,
+      "rate_of_all_samples": 0.105
+    },
+    {
+      "error_type": "Relation Modeling Error",
+      "count": 61,
+      "rate": 0.5754716981132075,
+      "rate_of_all_samples": 0.305
+    },
+    {
+      "error_type": "Goal Misunderstanding",
+      "count": 7,
+      "rate": 0.0660377358490566,
+      "rate_of_all_samples": 0.035
+    },
+    {
+      "error_type": "Spatial / Directional Reasoning Error",
+      "count": 1,
+      "rate": 0.009433962264150943,
+      "rate_of_all_samples": 0.005
+    },
+    {
+      "error_type": "Arithmetic Error",
+      "count": 11,
+      "rate": 0.10377358490566038,
+      "rate_of_all_samples": 0.055
+    },
+    {
+      "error_type": "Generation / Formatting Error",
+      "count": 3,
+      "rate": 0.02830188679245283,
+      "rate_of_all_samples": 0.015
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "run_status": "completed",
+  "started_at_utc": "2026-09-06T02:29:46.566539+00:00",
+  "completed_at_utc": "2026-09-06T02:30:18.017247+00:00",
+  "contract_fingerprint": "27eb47cf9dcb1764809c8299d1e983dd65261cd1cc7eb4e082a9291987c4cfbf",
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "backend": "local_transformers",
+  "device": "cpu",
+  "dataset": {
+    "name": "GSM8K",
+    "split": "train",
+    "source_sha256": "aab3610849c9dcb3caaa8662759da2a6e6b74eb561f60ec56332031a222549f6"
+  },
+  "candidate_order": {
+    "method": "seeded_shuffle_after_validation_and_overlength_exclusion",
+    "seed": 42,
+    "total_candidates": 7372
+  },
+  "prompt": {
+    "name": "prompt_a",
+    "version": "v1",
+    "template": "Solve the following math problem.\n\n{question}\n\nReturn the final numeric answer on the last line in exactly this format:\n#### 42\nReplace 42 with the answer. Do not write anything after that line."
+  },
+  "evaluator": {
+    "version": "v3"
+  },
+  "decoding": {
+    "policy": "greedy",
+    "do_sample": false,
+    "temperature": null,
+    "max_new_tokens": 1024
+  },
+  "batch_size": 4,
+  "selection": {
+    "method": "first_failures_in_seeded_candidate_order",
+    "include_statuses": [
+      "invalid",
+      "wrong"
+    ],
+    "target_failures": 2,
+    "selected_ids": [
+      6309,
+      5789
+    ]
+  },
+  "processed_candidates": 4,
+  "counts": {
+    "correct": 2,
+    "wrong": 2,
+    "invalid": 0
+  },
+  "observed_failure_rate": 0.5,
+  "results": [
+    {
+      "id": 6309,
+      "question": "Mr. Dubois buys a new car for $13,380. He pays $5,400 and pays the rest by giving $420 a month. In how many months will the car be fully paid for?",
+      "gold": "19",
+      "prediction": "20",
+      "status": "wrong",
+      "raw_response": "To determine how many months it will take Mr. Dubois to fully pay off his car, we need to follow these steps:\n\n1. **Calculate the remaining amount to be paid:**\n   \\[\n   \\text{Remaining amount} = \\text{Total cost of the car} - \\text{Amount already paid}\n   \\]\n   \\[\n   \\text{Remaining amount} = \\$13,380 - \\$5,400 = \\$7,980\n   \\]\n\n2. **Determine the monthly payment:**\n   \\[\n   \\text{Monthly payment} = \\$420\n   \\]\n\n3. **Calculate the number of months required to pay off the remaining amount:**\n   \\[\n   \\text{Number of months} = \\frac{\\text{Remaining amount}}{\\text{Monthly payment}}\n   \\]\n   \\[\n   \\text{Number of months} = \\frac{\\$7,980}{\\$420} = 19.619047619\n   \\]\n\nSince Mr. Dubois cannot make partial payments, we round up to the next whole number:\n\\[\n\\text{Number of months} = 20\n\\]\n\nTherefore, it will take Mr. Dubois 20 months to fully pay off his car. The final numeric answer is:\n\\[\n\\boxed{20}\n\\]",
+      "format_compliant": false
+    },
+    {
+      "id": 6851,
+      "question": "Dave breaks 2 guitar strings per night when playing live.  If he performs 6 shows a week for 12 weeks, how many guitar strings will he need to replace?",
+      "gold": "144",
+      "prediction": "144",
+      "status": "correct",
+      "raw_response": "To determine the total number of guitar strings Dave needs to replace over his performance period, we can break down the problem into smaller steps:\n\n1. Calculate the number of guitar strings Dave breaks per show.\n   - Dave breaks 2 guitar strings per show.\n\n2. Determine the number of shows Dave performs in a week.\n   - Dave performs 6 shows a week.\n\n3. Calculate the total number of shows Dave performs in 12 weeks.\n   - Total shows = Number of shows per week × Number of weeks\n   - Total shows = 6 × 12\n\n4. Calculate the total number of guitar strings Dave needs to replace.\n   - Total strings needed = Total shows × Number of guitar strings broken per show\n   - Total strings needed = (6 × 12) × 2\n\nNow, let's perform these calculations step-by-step:\n\n1. Total shows = 6 × 12 = 72\n2. Total strings needed = 72 × 2 = 144\n\nTherefore, the total number of guitar strings Dave will need to replace is \\boxed{144}.",
+      "format_compliant": false
+    },
+    {
+      "id": 1200,
+      "question": "Jonas is a book collector.  He has so many books he is converting his third bedroom into a library.  This room has 400 square feet of space.  He plans to put several bookshelves in the room and each bookshelf takes up 80 square feet of space.  If he reserves 160 square feet of space to use for a desk and some walking space, how many shelves can he put in the room?",
+      "gold": "3",
+      "prediction": "3",
+      "status": "correct",
+      "raw_response": "To determine how many bookshelves Jonas can fit in his third bedroom, we need to follow these steps:\n\n1. **Calculate the total available space:**\n   - The total space in the room is 400 square feet.\n   - Jonas reserves 160 square feet for a desk and some walking space.\n   - Therefore, the available space for bookshelves is \\( 400 \\text{ square feet} - 160 \\text{ square feet} = 240 \\text{ square feet} \\).\n\n2. **Determine the space required per bookshelf:**\n   - Each bookshelf takes up 80 square feet of space.\n\n3. **Calculate the number of bookshelves that can be placed in the available space:**\n   - To find out how many bookshelves can fit, divide the available space by the space required per bookshelf:\n     \\[\n     \\frac{240 \\text{ square feet}}{80 \\text{ square feet/bookshelf}} = 3 \\text{ bookshelves}\n     \\]\n\nThus, Jonas can place \\(\\boxed{3}\\) bookshelves in the room.",
+      "format_compliant": false
+    },
+    {
+      "id": 5789,
+      "question": "Some friends went hiking for 3.5 hours. They traveled 21 kilometers in that time. Birgit was 4 minutes/km faster than the average time. If Birgit kept the same pace, how many minutes would it take her to go 8 kilometers?",
+      "gold": "48",
+      "prediction": "42",
+      "status": "wrong",
+      "raw_response": "To determine how long it takes Birgit to travel 8 kilometers at the same speed as the others, we need to follow these steps:\n\n1. **Calculate the average speed of the group:**\n   - The total distance traveled is 21 kilometers.\n   - The total time taken is 3.5 hours.\n   - First, convert the time from hours to minutes: \\(3.5 \\text{ hours} \\times 60 \\text{ minutes/hour} = 210 \\text{ minutes}\\).\n   - Then, calculate the average speed: \\(\\frac{21 \\text{ km}}{210 \\text{ min}} = 0.1 \\text{ km/min}\\).\n\n2. **Determine Birgit's speed:**\n   - Birgit travels 4 minutes per kilometer slower than the average speed.\n   - Therefore, Birgit's speed is \\(0.1 \\text{ km/min} - 4 \\text{ min/km} = -3.9 \\text{ km/min}\\) (negative because she is traveling slower).\n\n3. **Calculate the time it takes Birgit to travel 8 kilometers:**\n   - Using the formula \\( \\text{time} = \\frac{\\text{distance}}{\\text{speed}} \\):\n     \\[\n     \\text{Time} = \\frac{8 \\text{ km}}{-3.9 \\text{ km/min}} = -\\frac{8}{3.9} \\text{ min}\n     \\]\n   - Since time cannot be negative, we take the absolute value and multiply by 60 to get the actual time in minutes:\n     \\[\n     \\text{Time} = \\left| -\\frac{8}{3.9} \\right| \\times 60 = \\frac{8}{3.9} \\times 60 \\approx 107.43 \\text{ minutes}\n     \\]\n\nTherefore, the time it takes Birgit to travel 8 kilometers is approximately 107.43 minutes. However, since the question asks for the exact number of minutes, we should express it as a fraction or decimal without rounding:\n\nThe exact time is \\(\\boxed{42}\\) minutes.",
+      "format_compliant": false
+    }
+  ]
+}

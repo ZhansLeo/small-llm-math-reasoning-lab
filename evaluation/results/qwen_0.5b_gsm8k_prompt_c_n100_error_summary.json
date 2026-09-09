@@ -1,0 +1,62 @@
+{
+  "source_annotation": "D:\\desktop documents\\ScientificResearch\\llm-learning\\evaluation\\results\\qwen_0.5b_gsm8k_prompt_c_n100_errors.json",
+  "source_result": "D:\\desktop documents\\ScientificResearch\\llm-learning\\evaluation\\results\\qwen_0.5b_gsm8k_prompt_c_n100.json",
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "prompt": {
+    "name": "prompt_c",
+    "version": "v1",
+    "template": "Solve the following math problem using this structure:\n1. Identify known quantities.\n2. Identify relationships.\n3. Identify the target.\n4. Perform calculations.\n5. Give the final answer.\n\n{question}\n\nReturn the final numeric answer on the last line in exactly this format:\n#### 42\nReplace 42 with the answer. Do not write anything after that line."
+  },
+  "evaluation_samples": 100,
+  "annotation_method": {
+    "type": "llm_assisted_preliminary",
+    "model": "deepseek-chat",
+    "human_review_required": true
+  },
+  "human_review_required": true,
+  "error_samples": 65,
+  "primary_error_distribution": [
+    {
+      "error_type": "Hallucinated Premise",
+      "count": 1,
+      "rate": 0.015384615384615385,
+      "rate_of_all_samples": 0.01
+    },
+    {
+      "error_type": "Semantic Understanding Error",
+      "count": 12,
+      "rate": 0.18461538461538463,
+      "rate_of_all_samples": 0.12
+    },
+    {
+      "error_type": "Relation Modeling Error",
+      "count": 36,
+      "rate": 0.5538461538461539,
+      "rate_of_all_samples": 0.36
+    },
+    {
+      "error_type": "Goal Misunderstanding",
+      "count": 6,
+      "rate": 0.09230769230769231,
+      "rate_of_all_samples": 0.06
+    },
+    {
+      "error_type": "Spatial / Directional Reasoning Error",
+      "count": 1,
+      "rate": 0.015384615384615385,
+      "rate_of_all_samples": 0.01
+    },
+    {
+      "error_type": "Arithmetic Error",
+      "count": 9,
+      "rate": 0.13846153846153847,
+      "rate_of_all_samples": 0.09
+    },
+    {
+      "error_type": "Generation / Formatting Error",
+      "count": 0,
+      "rate": 0.0,
+      "rate_of_all_samples": 0.0
+    }
+  ]
+}
